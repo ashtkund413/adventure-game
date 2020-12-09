@@ -8,11 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.Media;
 namespace adventure_game
-{
+{ 
+
     public partial class Form1 : Form
     {
         int scene = 0;
+    SoundPlayer crashing = new SoundPlayer(Properties.Resources.crashing);
+    SoundPlayer river = new SoundPlayer(Properties.Resources.River);
+    SoundPlayer forest3 = new SoundPlayer(Properties.Resources.forest3);
+    SoundPlayer van = new SoundPlayer(Properties.Resources.van);
+        SoundPlayer win = new SoundPlayer(Properties.Resources.win);
+        SoundPlayer sad = new SoundPlayer(Properties.Resources.sad);
         public Form1()
         {
             InitializeComponent();
@@ -92,11 +100,20 @@ namespace adventure_game
                 }
                 else if (scene == 19)
                 {
+                    scene = 34;
+
+                }
+                else if (scene == 34)
+                {
                     scene = 31;
                 }
                 else if (scene == 31)
                 {
                     scene = 32;
+                }
+                else if (scene == 33)
+                {
+                    scene = 0;
                 }
 
 
@@ -168,14 +185,11 @@ namespace adventure_game
                 {
                     scene = 32;
                 }
-                else if (scene == 9)
+                else if (scene == 33)
                 {
-                    scene = 13;
+                    scene = 0;
                 }
-                else if (scene == 9)
-                {
-                    scene = 13;
-                }
+               
             }
 
             switch (scene)
@@ -188,52 +202,66 @@ namespace adventure_game
                     outputLabel.Text = "You are on a plane with your wife and son";
                     redLabel.Text = "";
                     blueLabel.Text = "";
-
                     this.Refresh();
                     Thread.Sleep(2000);
                     outputLabel.Text = "a goose fly's into the wing and the plane starts to crash who you going to save";
                     redLabel.Text = "wife";
                     blueLabel.Text = "son";
+                    imageBox.BackgroundImage = Properties.Resources.PlaneCrash;
+                    
+                    crashing.Play();
+
                     break;
 
                 case 2:
                     outputLabel.Text = "you go to save your wife but the window shatters and you and your wife shoot out of the plane and fall to your death ";
                     redLabel.Text = "next";
                     blueLabel.Text = "";
-                    break;
+                    imageBox.BackgroundImage = Properties.Resources.window;
+                    crashing.Play();
+
+                break;
                 case 3:
                     outputLabel.Text = "you pick your son up well your wife gets sucked out of the plane";
                     redLabel.Text = "";
                     blueLabel.Text = "";
+                
                     this.Refresh();
                     Thread.Sleep(2000);
                     redLabel.Text = "front";
                     blueLabel.Text = "back";
                     outputLabel.Text = "where you going to go";
-                    break;
+                imageBox.BackgroundImage = Properties.Resources.run;
+                crashing.Play();
+                break;
                 case 6:
-                    outputLabel.Text = " hide in the washroom";
+                    outputLabel.Text = " you hide in the washroom";
                     redLabel.Text = "";
                     blueLabel.Text = "Next";
-
-                    break;
+                imageBox.BackgroundImage = Properties.Resources.washroom;
+                crashing.Play();
+                break;
                 case 7:
-                    outputLabel.Text = "there are no parashot's and no polite";
+                    outputLabel.Text = "there are no parachute and no polite";
                     redLabel.Text = "";
                     blueLabel.Text = "";
+                    crashing.Play();
                     this.Refresh();
                     Thread.Sleep(2000);
                     redLabel.Text = "fly";
                     blueLabel.Text = "hope";
                     outputLabel.Text = "try and fly the plane or hope for the best ";
-                    break;
+                    imageBox.BackgroundImage = Properties.Resources.front;
+                break;
                 case 9:
                     outputLabel.Text = "you gain control and crash in a river";
                     redLabel.Text = "";
-                    blueLabel.Text = "";
+                    blueLabel.Text = ""; crashing.Play();
+                imageBox.BackgroundImage = Properties.Resources.crash;
                     this.Refresh();
                     Thread.Sleep(2000);
-                    redLabel.Text = "call for help";
+                river.Play();
+                redLabel.Text = "call for help";
                     blueLabel.Text = "look around";
                     outputLabel.Text = "what do you do now ";
                     break;
@@ -241,99 +269,140 @@ namespace adventure_game
                     outputLabel.Text = "you stay and wait for help but you didn't crash in water it was quicksand and you all died ";
                     redLabel.Text = "next";
                     blueLabel.Text = "";
+                imageBox.BackgroundImage = Properties.Resources.sand;
 
                     break;
                 case 14:
                     outputLabel.Text = "you see you crashed in quicksand and you get out but no one else could in time";
-                    redLabel.Text = "yes";
-                    blueLabel.Text = "no";
+                imageBox.BackgroundImage = Properties.Resources.sand;
+                river.Play();
+                redLabel.Text = "";
+                blueLabel.Text = "";
                     this.Refresh();
                     Thread.Sleep(2000);
-                    outputLabel.Text = "do you make a fire";
+                redLabel.Text = "yes";
+                blueLabel.Text = "no";
+                outputLabel.Text = "do you make a fire";
                     break;
                 case 23:
                     outputLabel.Text = "you froze to death";
                     redLabel.Text = "";
                     blueLabel.Text = "next";
-
-                    break;
+                forest3.Play();
+                imageBox.BackgroundImage = Properties.Resources.cold;
+                break;
                 case 10:
                     outputLabel.Text = "you crash in a forest but its just you who survived  ";
-                    redLabel.Text = "shelter";
+                    redLabel.Text = "";
+                    blueLabel.Text = "";
+                imageBox.BackgroundImage = Properties.Resources.forest;
+                this.Refresh();
+                    Thread.Sleep(2000); forest3.Play();
+                outputLabel.Text = "look for help or try to find shelter ";
+                     redLabel.Text = "shelter";
                     blueLabel.Text = "look for help";
-                    this.Refresh();
-                    Thread.Sleep(10000);
-                    outputLabel.Text = "look for help or try to find shelter ";
-                    break;
+                break;
                 case 15:
                     outputLabel.Text = "you find a old house with no power and holes in the roof  ";
-                    redLabel.Text = "sleep";
-                    blueLabel.Text = "weapon";
-                    this.Refresh();
+                    redLabel.Text = "";
+                    blueLabel.Text = "";
+                imageBox.BackgroundImage = Properties.Resources.house;
+                forest3.Play();
+                this.Refresh();
                     Thread.Sleep(2000);
-                    outputLabel.Text = "try to sleep or look for a weapon";
+                redLabel.Text = "sleep";
+                blueLabel.Text = "weapon";
+                outputLabel.Text = "try to sleep or look for a weapon";
                     break;
                 case 27:
                     outputLabel.Text = "you are trying to sleep and a car comes pulls up to the front of the house ";
+                    redLabel.Text = "";
+                    blueLabel.Text = "";
+                imageBox.BackgroundImage = Properties.Resources.oldhouse;
+                this.Refresh();
+                van.Play();
+                Thread.Sleep(2000);
                     redLabel.Text = "run";
                     blueLabel.Text = "Ask for help";
-                    this.Refresh();
-                    Thread.Sleep(2000);
-                    outputLabel.Text = "run or ask for help ";
+                outputLabel.Text = "run or ask for help ";
                     break;
                 case 30:
                     outputLabel.Text = "you run out the back and hit a are trap and bleed out ";
                     redLabel.Text = "next";
                     blueLabel.Text = "";
-
-                    break;
+                imageBox.BackgroundImage = Properties.Resources.traper;
+                forest3.Play();
+                break;
                 case 31:
                     outputLabel.Text = "you tell him what happened and he takes you to the nearest city to get help ";
                     redLabel.Text = "";
                     blueLabel.Text = "next";
-
-                    break;
+                imageBox.BackgroundImage = Properties.Resources.car;
+                forest3.Play();
+                break;
                 case 32:
                     outputLabel.Text = "you win";
+                    win.Play();
 
+                    imageBox.BackgroundImage = Properties.Resources.passed;
                     break;
                 case 33:
                     outputLabel.Text = "the end of you ";
-
+                    redLabel.Text = "restart";
+                    blueLabel.Text = "restart";
+                    sad.Play();
+                    imageBox.BackgroundImage = Properties.Resources.wasted;
                     break;
                 case 24:
-                    outputLabel.Text = "you don't find a weapon and your sleep deprived and you fall asleep ";
+                    outputLabel.Text = "you don't find a weapon and your sleep deprived and you fall asleep";
                     redLabel.Text = "";
                     blueLabel.Text = "next";
-
-                    break;
+                forest3.Play();
+                break;
 
                 case 16:
                     outputLabel.Text = "you look for help but find nothing but a cave ";
-                    redLabel.Text = "yes";
-                    blueLabel.Text = "no";
-                    this.Refresh();
+                    redLabel.Text = "";
+                    blueLabel.Text = "";
+                imageBox.BackgroundImage = Properties.Resources.cave;
+                forest3.Play();
+                this.Refresh();
                     Thread.Sleep(2000);
-                    outputLabel.Text = "do you go in the cave or no ";
-                    break;
+                     redLabel.Text = "yes";
+                     blueLabel.Text = "no";
+                     outputLabel.Text = "do you go in the cave or no ";
+                      break;
                 case 18:
                     outputLabel.Text = "you go in the cave and see a family of bares they attack and kill you";
                     redLabel.Text = "next";
-
+                imageBox.BackgroundImage = Properties.Resources.bears;
 
                     break;
                 case 19:
                     outputLabel.Text = "you keep going and find a road";
-                    redLabel.Text = "north";
-                    blueLabel.Text = "south";
+                    redLabel.Text = "";
+                    blueLabel.Text = "";
                     this.Refresh();
                     Thread.Sleep(2000);
+                forest3.Play();
+                redLabel.Text = "north";
+                    blueLabel.Text = "south";
+                    imageBox.BackgroundImage = Properties.Resources.Road;
                     outputLabel.Text = "witch way do you go north or south ";
                     break;
                 case 26:
                     outputLabel.Text = "you keep walk till you pass out and wake up in the hospital ";
+                imageBox.BackgroundImage = Properties.Resources.room2;
+
                     redLabel.Text = "";
                     blueLabel.Text = "next";
+
+                    break;
+                case 34:
+                    outputLabel.Text = "you run in to someone in a car";
+                    redLabel.Text = ""; forest3.Play();
+                blueLabel.Text = "next";
+                imageBox.BackgroundImage = Properties.Resources.car;
 
                     break;
 

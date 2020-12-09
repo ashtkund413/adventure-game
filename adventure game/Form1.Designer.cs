@@ -33,6 +33,8 @@
             this.blueLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.imageBox = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.imageBox)).BeginInit();
             this.SuspendLayout();
             // 
             // outputLabel
@@ -81,12 +83,23 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "B";
             // 
+            // imageBox
+            // 
+            this.imageBox.BackgroundImage = global::adventure_game.Properties.Resources.plane;
+            this.imageBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.imageBox.Location = new System.Drawing.Point(318, 152);
+            this.imageBox.Name = "imageBox";
+            this.imageBox.Size = new System.Drawing.Size(327, 193);
+            this.imageBox.TabIndex = 9;
+            this.imageBox.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(657, 450);
+            this.Controls.Add(this.imageBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.blueLabel);
@@ -96,6 +109,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            ((System.ComponentModel.ISupportInitialize)(this.imageBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -107,6 +121,7 @@
         private System.Windows.Forms.Label blueLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox imageBox;
     }
 }
 

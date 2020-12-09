@@ -65,6 +65,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -75,9 +76,90 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\frozen" />
+    <None Include="Resources\plane" />
+    <None Include="Resources\plane1" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\747_jet_crash-keyWasFull-1290116770.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plane crashing.jfif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlaneCrash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\window.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\run.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\washroom.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\front.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sand.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cold.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forest.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\house.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\old house.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\traper.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\car.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\passed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wasted.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cave.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bears.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Road.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\room2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\River-SoundBible.com-1021391100.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rainforest_ambience-GlorySunz-1938133500.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\van-sliding-door-daniel_simon.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Short_triumphal_fanfare-John_Stracke-815794903.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Whimper-SoundBible.com-1729765971.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
